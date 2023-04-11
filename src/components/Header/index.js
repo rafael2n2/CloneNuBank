@@ -3,10 +3,9 @@ import { View, TouchableOpacity, Text, ScrollView } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import styles from "./style";
 
-export default function Header(){
+export default function Header({saldo, username}){
 
     const [showBalance, setShowBalance] = useState(false)
-
     return(
         <>
             <View style={styles.container}>
@@ -41,7 +40,7 @@ export default function Header(){
                 </View>
 
                 <Text style={styles.TextUsername}>
-                    Olá, Rafael
+                    Olá, {username}
                 </Text>
 
             </View>
@@ -56,97 +55,14 @@ export default function Header(){
                 </View>
 
                 {showBalance ? (
-                    <Text style={styles.BalanceTotal}> R$ 1365,98 </Text>
+                    <Text style={styles.BalanceTotal}> R$ {saldo} </Text>
                 ) : (
                     <View style={styles.BalanceTotalNotVisible}/>
                 )}
                 
             </View>                    
 
-            <View>
-                <ScrollView 
-                    horizontal 
-                    showsHorizontalScrollIndicator={false}
-                    contentContainerStyle={{marginLeft: 24, paddingRight: 50}}
-                >
-                    <View style={styles.OptionsView}>
-                        <TouchableOpacity style={styles.OptionIcon}>
-                            <Ionicons name='cash-outline' size={30} color='#000' />
-                        </TouchableOpacity>
-
-                        <Text style={styles.OptionsText}>
-                            Pix
-                        </Text>
-
-                    </View>
-
-                    <View style={styles.OptionsView}>
-                        <TouchableOpacity style={styles.OptionIcon}>
-                            <Ionicons name='cash-outline' size={30} color='#000' />
-                        </TouchableOpacity>
-
-                        <Text style={styles.OptionsText}>
-                            Pix
-                        </Text>
-
-                    </View>
-
-                    <View style={styles.OptionsView}>
-                        <TouchableOpacity style={styles.OptionIcon}>
-                            <Ionicons name='cash-outline' size={30} color='#000' />
-                        </TouchableOpacity>
-
-                        <Text style={styles.OptionsText}>
-                            Pix
-                        </Text>
-
-                    </View>
-
-                    <View style={styles.OptionsView}>
-                        <TouchableOpacity style={styles.OptionIcon}>
-                            <Ionicons name='cash-outline' size={30} color='#000' />
-                        </TouchableOpacity>
-
-                        <Text style={styles.OptionsText}>
-                            Pix
-                        </Text>
-
-                    </View>
-
-                    <View style={styles.OptionsView}>
-                        <TouchableOpacity style={styles.OptionIcon}>
-                            <Ionicons name='cash-outline' size={30} color='#000' />
-                        </TouchableOpacity>
-
-                        <Text style={styles.OptionsText}>
-                            Pix
-                        </Text>
-
-                    </View>
-
-                    <View style={styles.OptionsView}>
-                        <TouchableOpacity style={styles.OptionIcon}>
-                            <Ionicons name='cash-outline' size={30} color='#000' />
-                        </TouchableOpacity>
-
-                        <Text style={styles.OptionsText}>
-                            Pix
-                        </Text>
-
-                    </View>
-
-                    <View style={styles.OptionsView}>
-                        <TouchableOpacity style={styles.OptionIcon}>
-                            <Ionicons name='cash-outline' size={30} color='#000' />
-                        </TouchableOpacity>
-
-                        <Text style={styles.OptionsText}>
-                            Pix
-                        </Text>
-
-                    </View>
-                </ScrollView>
-            </View>
+           
         </>
     )
 }
